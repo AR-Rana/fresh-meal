@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList } from 'react-native'
 
 import { CATEGORIES } from './../data/dummy-data'
 import CategoryGridTile from './../components/CategoryGridTile'
@@ -34,5 +34,4 @@ CategoriesScreen.navigationOptions = {
     headerTitle: 'Meal Categories'
 }
 
-export default CategoriesScreen
-
+export default CategoriesScreen;
