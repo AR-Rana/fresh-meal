@@ -9,8 +9,13 @@ const CategoryMealScreen = (props) => {
 
     const displayedMeals = MEALS.filter(meal => meal.categoryIds.includes(catId));
 
-    const gotoMealDetail = () => {
-        props.navigation.navigate({ routeName: 'MealDetail' })
+    const gotoMealDetail = (id) => {
+        props.navigation.navigate({ 
+            routeName: 'MealDetail',
+            params: {
+                mealId: id
+            }
+         })
     }
 
     const renderMealItem = (itemData) => {
@@ -20,7 +25,7 @@ const CategoryMealScreen = (props) => {
             complexity={itemData.item.complexity}
             affordability={itemData.item.affordability}
             image={itemData.item.imageUrl}
-            onSelectMeal={gotoMealDetail}
+            onSelectMeal={() => gotoMealDetail(itemData.item.id)}
         />
     }
     return (
