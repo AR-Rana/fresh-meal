@@ -1,8 +1,10 @@
 import React from 'react'
 import { FlatList } from 'react-native'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 
 import { CATEGORIES } from './../data/dummy-data'
 import CategoryGridTile from './../components/CategoryGridTile'
+import HeaderButton from './../components/HeaderButton'
 
 const CategoriesScreen = (props) => {
     const gotoCategorymeals = (id) => {
@@ -30,8 +32,20 @@ const CategoriesScreen = (props) => {
     );
 };
 
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Meal Categories'
+// CategoriesScreen.navigationOptions = {
+//     headerTitle: 'Meal Categories',
+//     headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton} >
+//         <Item name='Menu' iconName='ios-menu' onPress = {() => {}} />
+//     </HeaderButtons>
+// }
+
+CategoriesScreen.navigationOptions = (navData) => {
+    return {
+        headerTitle: 'Meal Categories',
+        headerLeft: () => <HeaderButtons HeaderButtonComponent={HeaderButton} >
+            <Item name='Menu' iconName='ios-menu' onPress={() => { navData.navigation.toggleDrawer() }} />
+        </HeaderButtons>
+    }
 }
 
 export default CategoriesScreen;
